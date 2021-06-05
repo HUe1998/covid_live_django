@@ -6,10 +6,10 @@ from django.shortcuts import render
 
 def ChartView(request):
     url = 'https://api.covid19api.com/summary'
-    data_json = (json.loads(urlopen(url).read()))['Countries']
+    data_json = (json.loads(urlopen(url).read()))
     countryList = []
     totalList = []
-    for country in data_json:
+    for country in data_json['Countries']:
         countryList.append(country['Country'])
         totalList.append(country['TotalConfirmed'])
 
